@@ -37,6 +37,12 @@ interface DefineConfigOptions {
 	astro?: boolean
 
 	/**
+	 * @link https://sveltejs.github.io/eslint-plugin-svelte/
+	 * @default false
+	 */
+	svelte?: boolean
+
+	/**
 	 * @link https://github.com/vitest-dev/eslint-plugin-vitest
 	 * @default false
 	 */

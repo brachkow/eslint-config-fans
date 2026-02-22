@@ -11,6 +11,7 @@ import {
 	promise,
 	query,
 	stylistic,
+	svelte,
 	test,
 	typescript,
 	unicorn,
@@ -23,6 +24,7 @@ export function defineConfig(options, ...userConfigs) {
 		typescript: enableTypescript = false,
 		vue: enableVue = false,
 		astro: enableAstro = false,
+		svelte: enableSvelte = false,
 		test: enableTest = false,
 		unicorn: enableUnicorn = true,
 		perfectionist: enablePerfectionist = false,
@@ -48,6 +50,9 @@ export function defineConfig(options, ...userConfigs) {
 	}
 	if (enableAstro) {
 		extraFileExtensions.push('.astro')
+	}
+	if (enableSvelte) {
+		extraFileExtensions.push('.svelte')
 	}
 
 	if (enableUnicorn) {
@@ -96,6 +101,15 @@ export function defineConfig(options, ...userConfigs) {
 	if (enableAstro) {
 		configs.push(
 			astro({
+				typescript: enableTypescript,
+				useStylistic,
+			}),
+		)
+	}
+
+	if (enableSvelte) {
+		configs.push(
+			svelte({
 				typescript: enableTypescript,
 				useStylistic,
 			}),
